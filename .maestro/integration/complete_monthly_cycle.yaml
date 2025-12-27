@@ -1,0 +1,133 @@
+appId: com.example.jawara
+---
+# PHASE 1: LOGIN
+- tapOn: "Masuk"
+- assertVisible: "Masukkan Email"
+- assertVisible: "Masukkan Kata Sandi"
+
+- tapOn: "Masukkan Email"
+- inputText: "dawoaw1212@gmail.com"
+
+- tapOn: "Masukkan Kata Sandi"
+- inputText: "123123"
+
+- tapOn: "Masuk"
+
+# Verifikasi login berhasil (mencari teks di Dashboard)
+- assertVisible: Beranda
+
+
+# PHASE 2: ADD PEMASUKAN
+# Navigasi ke tab Keuangan
+- tapOn:
+    point: 67%,86%
+
+- tapOn:
+    point: 33%,86%
+- scroll
+
+- tapOn:
+    text: Pemasukan Lain
+    index: 1
+
+- tapOn:
+    point: 64%,16%
+
+
+# Mengisi form pemasukan (Menggunakan teks label/hint yang terlihat di layar)
+
+- tapOn: ".*Masukkan Nama Pemasukan.*" 
+- inputText: "Iuran Warga"
+- hideKeyboard
+
+- tapOn: ".*dd/mm/yyyy.*" 
+- tapOn: ".*OKE.*"
+
+- tapOn: ".*Pilih Kategori Pemasukan.*"
+- tapOn: "Sumbangan Swadaya"
+
+- tapOn: ".*Masukkan Nominal.*"
+- inputText: "1000000"
+- tapOn: Selesai
+
+
+- tapOn: "Simpan"
+
+- tapOn: "OK"
+
+- doubleTapOn:
+    point: 6%,7%
+
+
+
+# PHASE 3: CREATE KEGIATAN
+# Navigasi ke tab Kegiatan
+- doubleTapOn:
+    point: 67%,86%
+
+- scroll
+
+- tapOn: Tambah Kegiatan
+
+
+# Mengisi form kegiatan
+- tapOn: ".*Masukan Nama Kegiatan.*"
+- inputText: "Program Beasiswa Anak"
+- hideKeyboard
+
+- tapOn: ".*Pilih Kategori Kegiatan.*"
+- tapOn: "Pendidikan"
+
+- tapOn: ".*dd/mm/yyy.*"
+- tapOn: "OKE"
+
+- tapOn: ".*Masukan Lokasi Kegiatan.*"
+- inputText: "Hall RT4"
+- hideKeyboard
+
+- tapOn: ".*Masukan Nama Penanggung Jawab.*"
+- inputText: "wahyudi"
+- hideKeyboard
+
+- tapOn: ".*Masukan Deskripsi Kegiatan.*"
+- inputText: "Memberikan Bantuan dana Pendidikan"
+- hideKeyboard
+
+- scroll
+
+- tapOn: ".*Masukan Jumlah Anggaran.*"
+- inputText: "2000000"
+- hideKeyboard
+
+- tapOn: "Simpan"
+
+- tapOn: "OK"
+
+# PHASE 4: ADD PENGELUARAN
+- tapOn:
+    point: 33%,86%
+- scroll
+- tapOn: "Pengeluaran"
+- tapOn:
+    point: 64%,16%
+
+- tapOn: ".*Masukkan Nama Pengeluaran.*"
+- inputText: "Beasiswa Anak"
+- hideKeyboard 
+
+- tapOn: ".*Pilih Kategori Pengeluaran.*"
+- tapOn: ".*Kegiatan Warga.*"   
+
+- tapOn: ".*Masukkan Nominal.*"
+- inputText: "2000000"
+- hideKeyboard
+
+- tapOn: "Simpan"
+- tapOn: "OK"
+
+# PHASE 5: LOGOUT
+# Menekan tab Profil di navigasi bawah
+- tapOn:
+    point: 78%,86%
+
+- tapOn: ".*keluar.*"

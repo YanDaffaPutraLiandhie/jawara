@@ -1,0 +1,96 @@
+appId: com.example.jawara
+---
+# ============================================
+# SCENARIO: KELOLA KEGIATAN
+# Login → Create Kegiatan → Verify → Logout
+# ============================================
+
+# PHASE 1: LOGIN
+- launchApp
+
+# Wait for login page to appear
+- tapOn: "Masuk"
+- assertVisible: "Masukkan Email"
+- assertVisible: "Masukkan Kata Sandi"
+
+- tapOn: "Masukkan Email"
+- inputText: "dawoaw1212@gmail.com"
+
+- tapOn: "Masukkan Kata Sandi"
+- inputText: "123123"
+
+- tapOn: "Masuk"
+
+# Wait for home page to load
+- assertVisible: "Beranda"
+
+# PHASE 2: NAVIGATE TO KEGIATAN TAB
+- doubleTapOn:
+    point: 67%,86%
+- scroll
+
+# PHASE 3: CREATE KEGIATAN
+# Verify Tambah Kegiatan button exists
+- tapOn: Tambah Kegiatan
+- tapOn: ".*Masukan Nama Kegiatan.*"
+- inputText: "Program Beasiswa Anak"
+- hideKeyboard
+
+- tapOn: ".*Pilih Kategori Kegiatan.*"
+- tapOn: "Pendidikan"
+
+- tapOn: ".*dd/mm/yyy.*"
+- tapOn: "OKE"
+
+- tapOn: ".*Masukan Lokasi Kegiatan.*"
+- inputText: "Hall RT4"
+- hideKeyboard
+
+- tapOn: ".*Masukan Nama Penanggung Jawab.*"
+- inputText: "wahyudi"
+- hideKeyboard
+
+- tapOn: ".*Masukan Deskripsi Kegiatan.*"
+- inputText: "Memberikan Bantuan dana Pendidikan"
+- hideKeyboard
+
+- scroll
+
+- tapOn: ".*Masukan Jumlah Anggaran.*"
+- inputText: "2000000"
+- hideKeyboard
+
+- tapOn: "Simpan"
+
+- tapOn: "OK"
+
+# PHASE 4: add Pengeluaran
+- tapOn:
+    point: 33%,86%
+- scroll
+- tapOn: "Pengeluaran"
+- tapOn:
+    point: 64%,16%
+
+- tapOn: ".*Masukkan Nama Pengeluaran.*"
+- inputText: "Beasiswa Anak"
+- hideKeyboard 
+
+- tapOn: ".*Pilih Kategori Pengeluaran.*"
+- tapOn: ".*Kegiatan Warga.*"   
+
+- tapOn: ".*Masukkan Nominal.*"
+- inputText: "2000000"
+- hideKeyboard
+
+- tapOn: "Simpan"
+- tapOn: "OK"
+
+# PHASE 5: LOGOUT
+# Menekan tab Profil di navigasi bawah
+- tapOn:
+    point: 78%,86%
+
+- tapOn: ".*keluar.*"
+
+
